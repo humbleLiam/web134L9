@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //1. Initialize an empty inventory object. 
+            inventory = {};
+
+            //mplement a function called addProduct that takes parameters for product ID, name, and 
+            // quantity. This function should add the product to the inventory object.
+            function addProduct( product_ID, name, quantity){
+
+                // cjeck if dosent exist 
+                if(!inventory[product_ID]){
+                    inventory[product_ID] ={
+                        name: name,
+                        quantity: quantity
+                    };
+
+                } else{ // if exits change  quantity.
+                    inventory[product_ID].quantity += quantity;
+                }
+
+            }
+            //Implement a function calld displayInventory that displays the current inventory. 
+            function displayInventory(){
+                for (let product_ID in inventory){
+                    // tidle for templating text
+                    console.log("Product_ID:" + `${product_ID}`);
+                    console.log("name:"+`${inventory[product_ID].name}`);
+                    console.log("quantity:"+ `${inventory[product_ID].quantity}\n`);
+                }
+            }
+
+            //indProduct that takes a product ID as input and checks if the 
+            //product exists in the inventory. If the product exists, it should display its details; otherwise, 
+            //it should display a message indicating that the product is not found
+            function findProduct(product_ID){
+                if(!inventory[product_ID]){
+                    console.log("product is not found");
+                } else {
+                    console.log("Product_ID:" + `${product_ID}`);
+                    console.log("name:"+`${inventory[product_ID].name}`);
+                    console.log("quantity:"+ `${inventory[product_ID].quantity}\n`);
+                }
+            } 
+        </script>
+
+    </body>
+</html>
